@@ -1,118 +1,280 @@
-.main-page{
+/* =========================
+   Main Page
+========================= */
+
+.main-page {
     min-height: 100vh;
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
     overflow-x: hidden;
+    background: #f8f9fc;
 }
 
-.welcome-section{
+
+/* =========================
+   Welcome / Marquee Section
+========================= */
+
+.welcome-section {
     width: 100%;
     overflow: hidden;
-    padding: 20px 0;
-    margin: 0 auto 24px;
+    padding: 25px 0;
+    margin: 0 auto 30px;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f3e8ff
+    );
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
 }
 
-.welcome-track{
+.welcome-track {
     display: flex;
     width: max-content;
-    animation: marqueeScroll 12s linear infinite;
+    animation: marqueeScroll 15s linear infinite;
     will-change: transform;
 }
 
-.welcome-track span{
+.welcome-track span {
     color: rgb(83, 0, 128);
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
     font-weight: 700;
     line-height: 1.4;
     white-space: nowrap;
-    padding-right: 3rem;
+    padding-right: 4rem;
+    letter-spacing: 0.5px;
 }
 
 .welcome-track:hover {
     animation-play-state: paused;
 }
 
-/* Explore section */
-.explore-area{
-    margin-top: 30px;
+
+/* =========================
+   Explore Section
+========================= */
+
+.explore-area {
+    margin-top: 35px;
 }
 
-/* Grid Layout */
-.image-gallery{
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.explore-area h2 {
+    margin-bottom: 8px;
+    color: #222;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
 }
 
-.image-gallery img{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+.explore-area p {
+    color: #666;
+    margin-bottom: 20px;
 }
 
-.image-gallery img:hover{
-    transform: scale(1.03);
-}
 
-.see-more{
-    color: rgb(0, 0, 0);
-    background-color: rgb(244, 229, 15);
-    width: fit-content;
-    margin: 12px auto;
-    border-radius: 22px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-    padding: 12px;
-}
-
-.see-more:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-@media (max-width: 768px) {
-    .main-page {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome-track span {
-        font-size: 1.2rem;
-        padding-right: 2rem;
-    }
-}
+/* =========================
+   Image Gallery
+========================= */
 
 .image-gallery {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 24px;
     margin-top: 20px;
 }
+
+
+/* =========================
+   Gallery Images
+========================= */
 
 .image-gallery img {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    display: block;
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .image-gallery img:hover {
-    transform: scale(1.03);
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.2);
+
+    filter: brightness(1.05);
 }
+
+
+/* =========================
+   See More Button
+========================= */
+
+.see-more {
+    color: #111;
+    background: rgb(244, 229, 15);
+
+    width: fit-content;
+    margin: 30px auto 10px;
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    display: block;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.see-more:hover {
+    transform: translateY(-2px) scale(1.04);
+
+    background-color: rgb(255, 235, 20);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.see-more:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   Marquee Animation
+========================= */
 
 @keyframes marqueeScroll {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-50%);
     }
 }
 
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 768px) {
+
+    .main-page {
+        padding: 20px;
+    }
+
+    .welcome-section {
+        padding: 20px 0;
+        margin-bottom: 25px;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+        gap: 18px;
+    }
+
+    .image-gallery img {
+        border-radius: 14px;
+    }
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+    .main-page {
+        padding: 12px;
+    }
+
+    .welcome-section {
+        padding: 18px 0;
+        border-radius: 10px;
+    }
+
+    .welcome-track {
+        animation-duration: 12s;
+    }
+
+    .welcome-track span {
+        font-size: 1.2rem;
+        padding-right: 2.5rem;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .image-gallery img {
+        aspect-ratio: 3 / 4;
+        border-radius: 10px;
+    }
+
+    .see-more {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================
+   Very Small Screens
+========================= */
+
+@media (max-width: 350px) {
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .image-gallery img {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+
+/* =========================
+   Accessibility
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .welcome-track {
+        animation: none;
+    }
+
+    .image-gallery img,
+    .see-more {
+        transition: none;
+    }
+}

@@ -6,6 +6,9 @@ import DressesInfo from './pages/DressesInfo'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
+import Orders from './pages/Orders'
+import AboutUs from './pages/AboutUs'
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
       <Route path='/login' element={<Login />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/cart' element={<Cart />}></Route>
+      <Route path='/checkout' element={<Checkout />}></Route>
+      <Route path='/orders' element={<Orders />}></Route>
+      <Route path='/about' element={<AboutUs />}></Route>
     </Routes>
   )
 }

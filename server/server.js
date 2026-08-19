@@ -18,8 +18,20 @@ const PORT = process.env.PORT || 5000;
 
 const start_server = async () => {
     try {
-        await connect_mysql();
-        await connect_mongodb();
+        const hasMysqlConfig = !!(process.env.MYSQL_DB && process.env.MYSQL_USER);
+        const hasMongoConfig = !!process.env.MONGO_URI;
+
+        if (hasMysqlConfig) {
+            await connect_mysql();
+        } else {
+            console.warn('MySQL env vars are not set. Skipping MySQL connection. Add MYSQL_DB and MYSQL_USER to enable database-backed features.');
+        }
+
+        if (hasMongoConfig) {
+            await connect_mongodb();
+        } else {
+            console.warn('MONGO_URI is not set. Skipping MongoDB connection.');
+        }
 
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);

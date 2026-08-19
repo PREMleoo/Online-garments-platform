@@ -1,83 +1,233 @@
+/* =========================
+   Main Navbar
+========================= */
+
 .navbar-main {
+    width: 100%;
+    min-height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(74, 75, 78);
+
     padding: 10px 5%;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        135deg,
+        rgb(55, 57, 61),
+        rgb(74, 75, 78)
+    );
+
     color: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
     flex-wrap: wrap;
     gap: 12px;
 }
 
+
+/* =========================
+   Left Section
+========================= */
+
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+}
+
+
+/* =========================
+   Logo
+========================= */
+
+.nav-logo {
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo img {
-    width: 120px;
-    height: auto;
-    border-radius: 40%;
+    width: 105px;
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
     cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+.nav-logo img:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   Brand Title
+========================= */
 
 .brand-title h2 {
     margin: 0;
-    font-weight: 600;
-    letter-spacing: 1px;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    white-space: nowrap;
 }
+
+
+/* =========================
+   Menu Toggle
+========================= */
 
 .menu-toggle {
     display: none;
+
     background: transparent;
     border: none;
+
     color: white;
-    font-size: 1.5rem;
+
+    font-size: 1.7rem;
+
+    padding: 6px;
+
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+/* =========================
+   Navigation Links
+========================= */
 
 .nav-links {
     display: flex;
     align-items: center;
+
     list-style: none;
-    gap: 24px;
+
+    gap: 28px;
+
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
+    position: relative;
+
     cursor: pointer;
+
+    font-size: 0.98rem;
     font-weight: 500;
-    transition: opacity 0.3s;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .nav-links li:hover {
-    opacity: 0.8;
+    color: #60a5fa;
+    transform: translateY(-1px);
 }
+
+
+/* =========================
+   Optional underline effect
+========================= */
+
+.nav-links li::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #60a5fa;
+
+    border-radius: 2px;
+
+    transition: width 0.25s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   Cart
+========================= */
 
 .nav-cart-link {
     display: inline-flex;
+
     align-items: center;
+
     gap: 0.45rem;
+
     position: relative;
 }
 
+
+/* =========================
+   Cart Badge
+========================= */
+
 .cart-badge {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 0.35rem;
+
+    min-width: 21px;
+    height: 21px;
+
+    padding: 0 6px;
+
     border-radius: 999px;
-    background: #dc2626;
-    color: #fff;
-    font-size: 0.8rem;
+
+    background: #ef4444;
+    color: white;
+
+    font-size: 0.75rem;
     font-weight: 700;
+
     opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    transform: scale(0.7);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
 }
 
 .cart-badge.visible {
@@ -85,17 +235,64 @@
     transform: scale(1);
 }
 
+
+/* =========================
+   CTA Button
+========================= */
+
 .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     background: white;
     color: rgb(0, 132, 255);
-    padding: 4px 15px;
-    border-radius: 20px;
-    font-weight: bold;
+
+    padding: 8px 18px;
+
+    border-radius: 22px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+.cta:hover {
+    background: #eff6ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   Tablet / Mobile
+========================= */
+
 @media (max-width: 768px) {
+
     .navbar-main {
-        align-items: center;
+        padding: 10px 4%;
+
+        gap: 0;
+    }
+
+    .nav-left {
+        gap: 10px;
     }
 
     .menu-toggle {
@@ -104,11 +301,20 @@
 
     .nav-links {
         display: none;
+
         width: 100%;
+
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding-top: 8px;
+
+        align-items: stretch;
+
+        gap: 4px;
+
+        padding: 15px 0 5px;
+
+        margin-top: 8px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .nav-links.open {
@@ -116,25 +322,83 @@
     }
 
     .nav-links li {
-        padding: 4px 0;
+        width: 100%;
+
+        padding: 10px 12px;
+
+        box-sizing: border-box;
+
+        border-radius: 8px;
+    }
+
+    .nav-links li:hover {
+        background: rgba(255, 255, 255, 0.08);
+
+        transform: none;
+    }
+
+    .nav-links li::after {
+        display: none;
     }
 
     .cta {
-        display: inline-block;
-        border-radius: 2px;
+        width: 100%;
+
+        padding: 10px 15px;
+
+        border-radius: 10px;
+
+        box-sizing: border-box;
     }
 }
 
+
+/* =========================
+   Small Mobile
+========================= */
+
 @media (max-width: 480px) {
+
     .navbar-main {
-        padding: 10px 4%;
+        min-height: 60px;
+
+        padding: 8px 4%;
     }
 
     .nav-logo img {
-        width: 90px;
+        width: 80px;
+        height: 45px;
+
+        border-radius: 10px;
     }
 
     .brand-title h2 {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
+
+        letter-spacing: 0.4px;
+    }
+
+    .menu-toggle {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        padding-top: 12px;
+    }
+}
+
+
+/* =========================
+   Accessibility
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-logo img,
+    .menu-toggle,
+    .nav-links li,
+    .cta,
+    .cart-badge {
+        transition: none;
     }
 }

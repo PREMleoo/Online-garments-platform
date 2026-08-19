@@ -174,3 +174,593 @@
         height: 300px;
     }
 }
+
+/* =========================
+   Clothing Category Navbar
+========================= */
+
+.clothNavbar {
+    width: fit-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 28px auto;
+    padding: 8px;
+
+    background: #f3e2cc;
+
+    border: 1px solid #e5cba9;
+    border-radius: 30px;
+
+    flex-wrap: wrap;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.clothNavbar a {
+    display: block;
+
+    padding: 9px 18px;
+
+    color: #4a3422;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 22px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.clothNavbar a:hover {
+    background: #fff;
+
+    color: #7a451c;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   Category Section
+========================= */
+
+.category-section {
+    width: 100%;
+
+    padding: 20px 5% 40px;
+
+    box-sizing: border-box;
+}
+
+.category-section h2 {
+    margin: 8px 0 20px;
+
+    color: #222;
+
+    font-size: clamp(1.5rem, 3vw, 2rem);
+
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+}
+
+
+/* =========================
+   Dress Grid
+========================= */
+
+.dress-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 24px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   Dress Images
+========================= */
+
+.dress-grid img {
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    height: auto;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    background: #f3f3f3;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease;
+}
+
+.dress-grid img:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.18);
+
+    filter: brightness(1.04);
+}
+
+
+/* =========================
+   Product Detail Page
+========================= */
+
+.detail-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 40px 20px 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fafafa,
+            #f4f4f4
+        );
+}
+
+
+/* =========================
+   Detail Card
+========================= */
+
+.detail-card {
+    width: 100%;
+    max-width: 1050px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 1px solid #e8e8e8;
+
+    border-radius: 20px;
+
+    align-items: center;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   Detail Image
+========================= */
+
+.detail-image {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 14px;
+
+    background: #f3f3f3;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================
+   Detail Information
+========================= */
+
+.detail-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 10px;
+}
+
+.detail-category {
+    margin: 0;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.14em;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    color: #7b7b7b;
+}
+
+.detail-info h2 {
+    margin: 0;
+
+    color: #151515;
+
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+.detail-info h3 {
+    margin: 0;
+
+    color: #111;
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+}
+
+.detail-info p {
+    margin: 0;
+
+    color: #5f5f5f;
+
+    font-size: 0.98rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   Size Selection
+========================= */
+
+.size-section {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 6px;
+}
+
+.size-section label {
+    color: #222;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+}
+
+.size-section select {
+    width: fit-content;
+
+    min-width: 110px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d2d2d2;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.size-section select:hover {
+    border-color: #999;
+}
+
+.size-section select:focus {
+    border-color: rgb(83, 0, 128);
+
+    box-shadow:
+        0 0 0 3px rgba(83, 0, 128, 0.10);
+}
+
+
+/* =========================
+   Action Buttons
+========================= */
+
+.action-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+}
+
+.detail-info button {
+    min-width: 130px;
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* =========================
+   Primary Button
+========================= */
+
+.primary-btn {
+    background: #111;
+
+    color: #fff;
+
+    border: none;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.primary-btn:hover {
+    background: #2c2c2c;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================
+   Secondary Button
+========================= */
+
+.secondary-btn {
+    background: #f1f1f1;
+
+    color: #111;
+
+    border: 1px solid #ddd !important;
+}
+
+.secondary-btn:hover {
+    background: #e5e5e5;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Button Active
+========================= */
+
+.detail-info button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   Empty State
+========================= */
+
+.empty-state {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    justify-items: center;
+
+    padding: 60px 20px;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 768px) {
+
+    .clothNavbar {
+        max-width: 90%;
+
+        gap: 6px;
+
+        padding: 7px;
+    }
+
+    .clothNavbar a {
+        padding: 8px 13px;
+
+        font-size: 0.9rem;
+    }
+
+    .category-section {
+        padding: 20px 4% 35px;
+    }
+
+    .dress-grid {
+        grid-template-columns:
+            repeat(auto-fit, minmax(180px, 1fr));
+
+        gap: 16px;
+    }
+
+    .detail-page {
+        padding: 25px 15px 40px;
+    }
+
+    .detail-card {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 18px;
+
+        border-radius: 16px;
+    }
+
+    .detail-image {
+        height: 400px;
+    }
+
+    .detail-info {
+        padding: 5px;
+    }
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+    .clothNavbar {
+        width: calc(100% - 20px);
+
+        margin: 20px auto;
+
+        border-radius: 16px;
+    }
+
+    .clothNavbar a {
+        padding: 7px 10px;
+
+        font-size: 0.82rem;
+    }
+
+    .category-section {
+        padding: 15px 12px 30px;
+    }
+
+    .category-section h2 {
+        margin-bottom: 15px;
+    }
+
+    .dress-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .dress-grid img {
+        border-radius: 10px;
+    }
+
+    .detail-page {
+        padding: 15px 10px 30px;
+    }
+
+    .detail-card {
+        gap: 20px;
+
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+    .detail-image {
+        height: 330px;
+
+        border-radius: 10px;
+    }
+
+    .detail-info {
+        gap: 11px;
+    }
+
+    .detail-info h2 {
+        font-size: 1.55rem;
+    }
+
+    .detail-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .detail-info p {
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .detail-info button {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   Accessibility
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .dress-grid img,
+    .clothNavbar a,
+    .detail-info button,
+    .size-section select {
+        transition: none;
+    }
+}

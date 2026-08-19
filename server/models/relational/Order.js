@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/db.mysql');
+const OrderItem = require('./OrderItems');
 
 const Order = sequelize.define('Order', {
     id: {
@@ -13,27 +14,27 @@ const Order = sequelize.define('Order', {
         unique: true,
         defaultValue: () => `ORD-${Date.now().toString().slice(-8)}`
     },
-    
+
     userId: {
         type: DataTypes.UUID,
         allowNull: false
     },
     totalAmount: {
-        type: DataTypes.DECIMAL(10, 2), 
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
         defaultValue: 0.00
     },
     status: {
         type: DataTypes.ENUM('pending', 'paid', 'processing', 'shipped', 'delivered', 'cancelled'),
         defaultValue: 'pending',
-        index: true 
+        index: true
     },
     paymentId: {
         type: DataTypes.STRING,
         allowNull: true
     },
     shippingAddress: {
-        type: DataTypes.TEXT, 
+        type: DataTypes.TEXT,
         allowNull: false
     },
     trackingNumber: {
@@ -41,7 +42,12 @@ const Order = sequelize.define('Order', {
         allowNull: true
     }
 }, {
-    timestamps: true 
+    timestamps: true
+});
+
+Order.hasMany(OrderItem, {
+    foreignKey: 'orderId',
+    as: 'items'
 });
 
 module.exports = Order;
